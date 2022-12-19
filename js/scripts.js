@@ -22,29 +22,37 @@ console.log(typeof numberAge);
 let priceKm = (numberKm * 0.21);
 console.log('Il prezzo per i chilometri indicati è', (numberKm * 0.21));
 
-//Definizione sconto al 20% 
+//Definizione prezzo con sconto al 20% 
 let discountTwenty = (priceKm / 100) * 20;
 console.log('Lo sconto del 20% è di euro ', discountTwenty);
 
-//Definizione sconto al 40% 
+let priceDiscountTwenty = priceKm - discountTwenty;
+
+//Definizione prezzo con sconto al 40% 
 let discountFourty = (priceKm / 100) * 40;
 console.log('Lo sconto del 40% è di euro ', discountFourty);
 
+let priceDiscountFourty = priceKm - discountFourty;
+
+//Definizione prezzo normale 
+let priceNormal = priceKm;
+
 //Istruzioni condizionali
 if (numberAge < 18) {
-   priceKm - discountTwenty;
+   priceDiscountTwenty;
+   document.getElementById('priceDiscountTwenty').innerHTML = (Math.round(priceDiscountTwenty * 100) / 100).toFixed(2);
+   console.log('Il prezzo per minorenni è di: ', priceDiscountTwenty);
 }
 else if (numberAge > 65) {
-    priceKm - discountFourty;
+    priceDiscountFourty;
+    document.getElementById('priceDiscountFourty').innerHTML = (Math.round(priceDiscountFourty * 100) / 100).toFixed(2);
+    console.log('Il prezzo per over 65 è di: ', priceDiscountFourty);
 }
 else {
-    priceKm;
+    priceNormal;
+    document.getElementById('priceNormal').innerHTML = (Math.round(priceNormal * 100) / 100).toFixed(2);
+    console.log('Il prezzo per chi ha tra i 18 e i 64 anni è di: ', priceNormal);
 }
-
-console.log('Il prezzo per minorenni è di: ',  priceKm - discountTwenty);
-console.log('Il prezzo per over 65 è di: ',  priceKm - discountFourty);
-console.log('Il prezzo per chi ha tra i 18 e i 64 anni è di: ',  priceKm);
-
 
 
 
